@@ -24,7 +24,7 @@ namelist_path = os.path.join(base_dir, "namelist.wps")
 batch_script_path = os.path.join(base_dir, "wps.sh")
 link_grb_script_path = os.path.join(base_dir, "link_grib.csh")
 start_year = 2020
-start_month = 2
+start_month = 12
 end_month = 12
 
 # Function to extract the current start_date and end_date from namelist.wps
@@ -48,9 +48,10 @@ def extract_dates():
 def update_namelist(year, month):
     # Calculate start and end dates for the month
     start_date = datetime(year, month, 1, 0, 0 )
-    #if month == 12:
-    #    end_date = datetime(year + 1, 1, ,)
-    end_date = datetime(year, month + 1, 1, 0 , 0) 
+    if month == 12:
+        end_date = datetime(year + 1, 1,1,  0 ,0 )
+    else:
+        end_date = datetime(year, month + 1, 1, 0 , 0) 
 
     # Format dates as strings
     start_date_str = start_date.strftime("%Y-%m-%d_%H:%M:%S")
@@ -107,7 +108,7 @@ def check_output_files(year, month):
     file_pattern = os.path.join(output_dir, f"ERA5:{last_day_str}*")
 
     # Count the number of files matching the pattern
-    output_files = [f for f in os.listdir(output_dir) if f"ERA5:{last_day_str}" in f]
+    output_files = glob.glob(os.path.join(output_dir, f"ERA5:{last_day_str}*" ))
     num_files = len(output_files)
 
     # Check if there are 8 files (3-hourly data for the last day)
@@ -153,7 +154,7 @@ while (current_month <= end_month):
     # Step 4: Wait for output files to be created
     while not check_output_files(current_year, current_month):
         print("Waiting for output files...")
-        time.sleep(3600)  # Check every minute
+        time.sleep(1800)  # Check every minute
 
     print(f"Output files for {current_year:04d}-{current_month:02d} created.", flush= True)
 
