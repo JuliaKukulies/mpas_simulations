@@ -1,0 +1,29 @@
+<streams>
+<immutable_stream name="input"
+                  type="input"
+                  filename_template="mpas_c404_comparison/variable_res_15k3k/CONUS_init.nc"
+                  input_interval="initial_only" />
+
+<stream name="output"
+        type="output"
+        filename_template="/glade/derecho/scratch/kukulies/mpas/variable_res_15k3k/history.$Y-$M-$D_$h.$m.$s.nc"
+        output_interval="1:00:00" >
+	<file name="stream_list.atmosphere.output"/>
+</stream>
+
+<stream name="diagnostics"
+        type="output"
+        filename_template="/glade/derecho/scratch/kukulies/mpas/variable_res_15k3k/diag.$Y-$M-$D_$h.$m.$s.nc"
+        output_interval="3:00:00" >
+	<file name="stream_list.atmosphere.diagnostics"/>
+</stream>
+
+<stream name="surface"
+        type="input"
+        filename_template="mpas_c404_comparison/variable_res_15k3k/CONUS_sfc_update.nc"
+        filename_interval="none"
+        input_interval="1_00:00:00" >
+	<file name="stream_list.atmosphere.surface"/>
+</stream>
+
+</streams>

@@ -1,0 +1,13 @@
+<streams>
+<immutable_stream name="input"
+                  type="input"
+                  filename_template="mpas_c404_comparison/global_uniform_15k/15k_static.nc"
+                  input_interval="initial_only" />
+
+<immutable_stream name="output"
+                  type="output"
+                  filename_template="mpas_c404_comparison/global_uniform_15k/15k_init.nc"
+                  packages="initial_conds"
+                  output_interval="initial_only" />
+
+</streams>

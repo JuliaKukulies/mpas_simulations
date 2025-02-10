@@ -1,0 +1,13 @@
+<streams>
+<immutable_stream name="input"
+                  type="input"
+                  filename_template="/glade/derecho/scratch/kukulies/mpas/variable_res_15k3k/CONUS_static.nc"
+                  input_interval="initial_only" />
+
+<immutable_stream name="surface"
+                  type="output"
+                  packages="sfc_update"
+		  filename_interval = "none"
+                  output_interval="86400"
+                  filename_template="/glade/derecho/scratch/kukulies/mpas/variable_res_15k3k/sfc_update.nc" />
+</streams>

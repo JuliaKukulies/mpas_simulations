@@ -1,0 +1,14 @@
+<streams>
+<immutable_stream name="input"
+                  type="input"
+                  filename_template="mpas_c404_comparison/global_uniform_30k/30k_static.nc"
+                  input_interval="initial_only" />
+
+<immutable_stream name="surface"
+                  type="output"
+                  filename_template="mpas_c404_comparison/global_uniform_30k/30k_sfc_update.nc"
+                  packages="sfc_update"
+		  filename_interval = "none"
+                  output_interval="86400" />
+
+</streams>

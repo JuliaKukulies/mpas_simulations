@@ -1,0 +1,33 @@
+<streams>
+<immutable_stream name="input"
+                  type="input"
+                  filename_template="mpas_c404_comparison/global_uniform_15k/15k_init.nc"
+                  input_interval="initial_only" />
+
+<stream name="output"
+        type="output"
+        filename_template="/glade/derecho/scratch/kukulies/mpas/global_uniform_15k/history.$Y-$M-$D_$h.$m.$s.nc"
+	io_type="pnetcdf,cdf5"
+	clobber_mode="overwrite"
+        output_interval="1:00:00" >
+	<file name="stream_list.atmosphere.output"/>
+</stream>
+
+<stream name="diagnostics"
+        type="output"
+	io_type="pnetcdf,cdf5"
+	clobber_mode="overwrite"
+        filename_template="/glade/derecho/scratch/kukulies/mpas/global_uniform_15k/diag.$Y-$M-$D_$h.$m.$s.nc"
+        output_interval="3:00:00" >
+	<file name="stream_list.atmosphere.diagnostics"/>
+</stream>
+
+<stream name="surface"
+        type="input"
+        filename_template="mpas_c404_comparison/global_uniform_15k/15k_sfc_update.nc"
+        filename_interval="none"
+        input_interval="1_00:00:00" >
+	<file name="stream_list.atmosphere.surface"/>
+</stream>
+
+</streams>
