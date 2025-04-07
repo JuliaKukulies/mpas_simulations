@@ -1,0 +1,38 @@
+<!-- ******************************* -->
+<!-- Vertical integrals of liquid and ice hydrometeor types  -->
+<!-- Created by Julia Kukulies, March 2025 -->
+<!-- ******************************* -->
+<var_struct name="diag" time_levs="1">
+    <!-- Ice Water Path (qi + qs + qg) -->
+    <var name="iwp" 
+         type="real" 
+         dimensions="nCells Time" 
+         units="g m^-2"
+         description="Vertical integral of ice hydrometeors (qi+qs+qg)"/>
+
+    <!-- Liquid Water Path (qc + qr) -->
+    <var name="lwp" 
+         type="real" 
+         dimensions="nCells Time" 
+         units="g m^-2"
+         description="Vertical integral of liquid hydrometeors (qc+qr)"/>
+
+    <!-- Vertically-integrated water vapor transport  -->
+    <var name="ivt_u"
+	 type="real"
+	 dimensions="nCells Time" 
+	 units="kg m^-1 s^-1" 
+	 description="Zonal component of integrated vapor transport"/>
+    
+    <var name="ivt_v"
+	 type="real"
+	 dimensions="nCells Time" 
+	 units="kg m^-1 s^-1" 
+	 description="Meridional component of integrated vapor transport"/>
+
+    <var name="ivt_mag"
+	 type="real"
+	 dimensions="nCells Time" 
+	 units="kg m^-1 s^-1" 
+	 description="Magnitude of integrated vapor transport"/>
+</var_struct>
